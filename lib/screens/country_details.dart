@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:places/utils/constants.dart';
 
 class CountryDetails extends StatefulWidget {
 
@@ -40,8 +41,13 @@ class CountryDetailsState extends State<CountryDetails> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Icon(Icons.arrow_back_ios, color: Colors.white),
-                              Text("Region | ${widget.country["region"]}",
+                              InkWell(
+                                  child: Icon(Icons.arrow_back_ios, color: Colors.white),
+                                onTap: (){
+                                    Navigator.pop(context);
+                                },
+                              ),
+                              Text("${Constants.REGION} | ${widget.country["region"]}",
                                   style: TextStyle(letterSpacing: 2, fontWeight: FontWeight.w600, fontSize: 18, color: Colors.white),
                                   textAlign: TextAlign.left),
                             ],
@@ -102,7 +108,7 @@ class CountryDetailsState extends State<CountryDetails> {
                             flex: 1,
                             child: Column(
                               children: [
-                                Text("Demonym", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.grey)),
+                                Text(Constants.DEMONYM, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.grey)),
                                 Text(widget.country["demonym"], style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.blueGrey)),
                               ],
                             ),
@@ -111,7 +117,7 @@ class CountryDetailsState extends State<CountryDetails> {
                             flex: 1,
                             child: Column(
                               children: [
-                                Text("Calling Code", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.grey)),
+                                Text(Constants.CALLING_CODE, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.grey)),
                                 Text(widget.country["callingCodes"].toString(), style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.blueGrey)),
                               ],
                             ),
@@ -127,7 +133,7 @@ class CountryDetailsState extends State<CountryDetails> {
                             flex: 1,
                             child: Column(
                               children: [
-                                Text("Currency", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.grey)),
+                                Text(Constants.CURRENCY, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.grey)),
                                 Text("${widget.country["currencies"][0]["symbol"]} ${widget.country["currencies"][0]["name"]}", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.blueGrey)),
                               ],
                             ),
@@ -136,7 +142,7 @@ class CountryDetailsState extends State<CountryDetails> {
                             flex: 1,
                             child: Column(
                               children: [
-                                Text("Population", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.grey)),
+                                Text(Constants.POPULATION, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.grey)),
                                 Text(widget.country["population"].toString(), style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.blueGrey)),
                               ],
                             ),

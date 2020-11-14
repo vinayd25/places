@@ -41,7 +41,12 @@ class CountriesState extends State<Countries> {
       appBar: AppBar(
         title: Text(widget.region, style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
         backgroundColor: widget.primaryColor,
-        leading: Icon(Icons.arrow_back_ios, color: Colors.white),
+        leading: InkWell(
+            child: Icon(Icons.arrow_back_ios, color: Colors.white),
+          onTap: (){
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: SafeArea(
         bottom: true,
